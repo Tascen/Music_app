@@ -1,0 +1,132 @@
+@import "variables";
+
+@import "topography/topography";
+@import "icons";
+
+@import "сomponents/inputs/all";
+@import "сomponents/list_items/all";
+@import "сomponents/page_elements/all";
+@import "сomponents/pages/all";
+
+
+
+body {
+  --color_background: #313038;
+  --color_panel_background_1: #f4f4f4;
+  //---------------------------
+  --color_topography_1: #FFFFFF;
+  --color_topography_1_shade: #f4f4f4;
+  --color_topography_2: #313038;
+  --color_topography_2_shade: #5D5B6A;
+
+  --color_topography_lurking: #92929d;
+  --color_topography_lurking_tr: #d9edf7;
+  --color_topography_lurking_shade: #758184;
+  --color_topography_warn: #ef5466;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+svg.assets {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+img:not(*[src]), img[src="#"] {
+  background-image: url("../images/img_404.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(199deg, #96A1A3 -10%, #3a5988 100%);
+  text-align: left;
+  --viewbox_width: #{$viewbox_width};
+  --viewbox_height: #{$viewbox_height};
+
+  .page_background {
+    background: var(--color_background);
+    > svg:nth-of-type(1) {
+      width: 354px;
+      height: 368px;
+    }
+    > svg:nth-of-type(2) {
+      width: 114px;
+      height: 237px;
+    }
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#root {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+
+
+
+  main[id^="page"] {
+    width: var(--viewbox_width);
+    height: var(--viewbox_height);
+    position: relative;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border: solid 1px var(--color_topography_1-tr);
+      border-radius: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--color_topography_1);
+      border-radius: 20px;
+    }
+  }
+}
+
+#screen {
+
+  position: relative;
+  width: var(--viewbox_width);
+  height: var(--viewbox_height);
+  overflow: hidden;
+  background: var(--color_background);
+  border-radius: 16px;
+  box-shadow: 0 0 20px 0px #0000002e;
+  border: solid 8px var(--color_background);
+}
+
+
+@media (min-width: $viewbox_width + 16px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: $viewbox_width + 16px) {
+  body {
+    --viewbox_width: 100vw;
+    --viewbox_height: 100vh;
+  }
+  #screen {
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+  }
+}

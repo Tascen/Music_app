@@ -1,0 +1,67 @@
+$size_t1: 80px;
+
+.loader-t1 {
+  width: $size_t1 / 10;
+  height: $size_t1 / 10;
+  display: inline-block;
+  position: relative;
+  border-radius: 4px;
+  color: var(--color_topography_warn);
+  background: currentColor;
+   animation: anim__loader-t1 0.3s 0.3s linear infinite alternate;
+  &::after , &::before {
+    content: '';
+    width: $size_t1 / 10;
+    height: $size_t1 / 10;
+    border-radius: 4px;
+    background: currentColor;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+    animation: anim__loader-t1 0.3s 0.45s linear infinite alternate;
+  }
+   &::after {
+     top: -15px;
+     animation-delay: 0s;
+   }
+}
+
+.loader_panel{
+  .loader-t1 {
+    transition: transform $anim_duration__loader_panel $anim_duration__loader_panel * 2 ease;
+    &::before, &::after {
+      transition:
+        transform $anim_duration__loader_panel $anim_duration__loader_panel ease,
+        border-radius $anim_duration__loader_panel * .6 $anim_duration__loader_panel 1.4 ease,
+        height $anim_duration__loader_panel $anim_duration__loader_panel * 2 ease;
+    }
+  }
+
+  &.is_hidden {
+    .loader-t1 {
+      transition: transform $anim_duration__loader_panel $anim_duration__loader_panel ease;
+      animation-fill-mode: backwards;
+      animation-iteration-count: unset;
+      transform: scale(0);
+      &::before, &::after {
+        transition:
+          transform $anim_duration__loader_panel ease,
+          height $anim_duration__loader_panel $anim_duration__loader_panel ease;
+        animation-fill-mode: backwards;
+        animation-iteration-count: unset;
+      }
+      &::before {
+        transform: translateY(-15px) translateX(-50%);
+      }
+      &::after {
+        transform: translateY(15px) translateX(-50%);
+      }
+    }
+  }
+}
+
+@keyframes anim__loader-t1 {
+  0% { width: $size_t1 / 10;}
+  100% { width: $size_t1;}
+}

@@ -1,0 +1,87 @@
+.panel-trackPlaying {
+  width: var(--viewbox_width);
+  height: var(--viewbox_height);
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 10px 26px;
+  border-radius: $border_radius_4 $border_radius_4 0 0;
+  background: var(--color_panel_background_1);
+
+  scroll-behavior: smooth;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+
+  .btn.close_open {
+    margin: 0 0 16px 0;
+    *[class|="icon"], .icon {
+      --color_1: var(--color_topography_2);
+      --size: 32px;
+      margin: 0 0 0 -9px;
+    }
+    transition: all .25s ease;
+    &:hover {
+      transform: translateY(-5px);
+    }
+    &:active {
+      transform: translateY(-5px) scale(0.85);
+    }
+  }
+
+
+  .panel-trackPlaying_cover {
+    position: relative;
+    width: calc(var(--viewbox_width) - 26px * 2);
+    max-width: 300px;
+    height: calc(var(--viewbox_width) - 26px * 2);
+    max-height: 300px;
+    border-radius: $border_radius_3;
+    margin: 0 auto 24px auto;
+    overflow: hidden;
+    > img, > canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+  .playerTimeline {}
+
+
+  .panel-trackPlaying_text {
+    margin: 24px 0;
+    text-align: center;
+    color: var(--color_topography_2);
+    h4, h5, h6 {
+      color: var(--color_topography_lurking);
+    }
+  }
+
+
+  .panel-trackPlaying_control {
+    display: grid;
+    grid-template-columns: calc(50% - 24px) 48px auto;
+    .panel-trackPlaying_control_line > * {
+      margin: 0 12px;
+    }
+    .btn-tm-play {
+      --size: 48px;
+    }
+    > .panel-trackPlaying_control_line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+
+  .loader_panel {
+    background: var(--color_panel_background_1);
+    *[class|="loader"] {--color: var(--color_background);}
+    &:not(.is_hidden) ~ * {display: none;}
+  }
+}

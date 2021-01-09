@@ -1,0 +1,111 @@
+@import "@styles/variables";
+
+
+
+.panel-albumHead {
+  display: grid;
+  overflow: hidden;
+
+
+  .panel-albumHead_cover {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: $border_radius_3;
+    margin: 0 0 24px 0;
+    overflow: hidden;
+    float: left;
+    > img, > canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+  .panel-albumHead_name {}
+
+
+  .panel-albumHead_author {
+    color: var(--color_topography_warn);
+  }
+
+
+  .panel-albumHead_desc {
+    margin: 16px 0;
+  }
+
+
+  .panel-albumHead_title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    > * {
+      white-space: inherit;
+      text-overflow: inherit;
+      overflow: inherit;
+    }
+  }
+
+
+  .panel-albumHead_line {
+    max-height: 100px;
+    *[class|="btn"], *[class*="btn"], .btn {
+      margin: 8px;
+      &:nth-child(1) {margin-left: 0;}
+      &:nth-last-child(1) {margin-right: 0;}
+    }
+  }
+}
+
+
+
+//View versions and changing animation
+
+$duration__change_type_anim: .5s;
+
+
+.panel-albumHead {
+  .panel-albumHead_part-1 {
+    .panel-albumHead_cover {
+      transition: all $duration__change_type_anim ease;
+    }
+    .panel-albumHead_title {
+      transition: all $duration__change_type_anim ease, display 0s $duration__change_type_anim;
+      transform: translate(20px, -20px);
+      opacity: 0;
+    }
+  }
+  .panel-albumHead_part-2 {
+    > * {
+      transition: all $duration__change_type_anim ease;
+    }
+    transition: all $duration__change_type_anim ease;
+    max-height: 250px;
+  }
+}
+
+.panel-albumHead.mini_ver {
+  .panel-albumHead_part-1 {
+    .panel-albumHead_cover {
+      transition: all $duration__change_type_anim ease;
+      width: 60px;
+      height: 60px;
+      margin: 0 16px 16px 0;
+    }
+    .panel-albumHead_title {
+      transition: all $duration__change_type_anim $duration__change_type_anim ease, display 0s 0s;
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+  }
+  .panel-albumHead_part-2 {
+    > * {
+      transition: all $duration__change_type_anim ease;
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    transition: all $duration__change_type_anim ease;
+    max-height: 0px;
+  }
+}

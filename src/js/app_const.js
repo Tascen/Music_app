@@ -1,0 +1,2 @@
+export const THROTTLE_SCROLL_INTERVAL = 100;
+export const ITEM_OFFSET_BEFORE_LOAD = 0;

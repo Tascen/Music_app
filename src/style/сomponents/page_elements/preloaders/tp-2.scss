@@ -1,0 +1,72 @@
+$width_t2: 48px;
+$height_t2: 40px;
+
+$anim_duration__t2: .5s;
+
+
+.loader-t2 {
+  --color: var(--color_topography_1);
+  width: $width_t2 / 6;
+  height: $height_t2;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  background: var(--color);
+  color: var(--color);
+  animation: anim__loader-t2 $anim_duration__t2 $anim_duration__t2  linear infinite alternate;
+  &::after , &::before {
+    content: '';
+    width: $width_t2 / 6;
+    height: $height_t2;
+    border-radius: 4px;
+    background: var(--color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    animation: anim__loader-t2 $anim_duration__t2  $anim_duration__t2 * 1.5  linear infinite alternate;
+  }
+  &::before {
+    left: -20px;
+    animation-delay: 0s;
+  }
+}
+
+.loader_panel{
+  .loader-t2 {
+    transition: transform $anim_duration__loader_panel $anim_duration__loader_panel * 2 ease;
+    &::before, &::after {
+      transition:
+        transform $anim_duration__loader_panel $anim_duration__loader_panel ease,
+        border-radius $anim_duration__loader_panel * .6 $anim_duration__loader_panel 1.4 ease,
+        height $anim_duration__loader_panel $anim_duration__loader_panel * 2 ease;
+    }
+  }
+
+  &.is_hidden {
+    .loader-t2 {
+      transition: transform $anim_duration__loader_panel $anim_duration__loader_panel ease;
+      animation-fill-mode: backwards;
+      animation-iteration-count: unset;
+      transform: scale(0);
+      &::before, &::after {
+        transition:
+          transform $anim_duration__loader_panel ease,
+          height $anim_duration__loader_panel $anim_duration__loader_panel ease;
+        animation-fill-mode: backwards;
+        animation-iteration-count: unset;
+      }
+      &::before {
+        transform: translateX(20px) translateY(-50%);
+      }
+      &::after {
+        transform: translateX(-20px) translateY(-50%);
+      }
+    }
+  }
+}
+
+@keyframes anim__loader-t2 {
+  0% { height: $width_t2;}
+  100% { height: $width_t2 / 10;}
+}

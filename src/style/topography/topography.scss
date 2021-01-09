@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700;900&display=swap');
+@import "./mixins.scss";
+
+:root {
+  color: var(--color_topography_1);
+}
+
+
+*::selection {
+  background: var(--color_topography_warn);
+  color: var(--color_topography_1);
+}
+
+
+h3 {
+  @include body_H3-normal;
+}
+
+h4 {
+  @include body_H5-normal;
+}
+
+h6 {
+  @include body_H6-normal;
+}
+
+p, a {
+  @include body-normal;
+  text-decoration: none;
+}

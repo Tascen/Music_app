@@ -1,0 +1,41 @@
+*[class|="icon"], .icon {
+  --color_1: var(--color_topography_1);
+  --color_2: var(--color_topography_2);
+  --transition: all .25s ease;
+  svg * {transition: var(--transition);}
+}
+
+.icon-reset {
+  width: 20px;
+  height: 20px;
+}
+
+//arrow
+*[class*="icon-arrow"] {
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
+  vertical-align: middle;
+
+  &.icon-arrow-right {
+
+  }
+}
+//triangle
+*[class*="icon-triangle"] {
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
+  vertical-align: middle;
+
+  &.icon-triangle-right {
+
+  }
+}
+
+
+.icon-backward, .icon-forward, .icon-volume {
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
+}

@@ -1,0 +1,45 @@
+@import "@styles/variables";
+
+$head_delay: 0s;
+$anim_duration__loader_panel: .5s;
+
+.loader_panel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  background: var(--color_background);
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.loader_panel{
+  visibility: visible;
+  opacity: 1;
+  border-radius: $border_radius_2;
+  transition:
+    all $anim_duration__loader_panel,
+    visibility .0s $head_delay;
+
+
+  &.is_hidden {
+    visibility: hidden;
+    opacity: 0;
+    border-radius: 0px;
+    transition:
+      all $anim_duration__loader_panel $anim_duration__loader_panel * 2 + $head_delay,
+      border-radius $anim_duration__loader_panel * .6 $anim_duration__loader_panel * 2.4 + $head_delay,
+      visibility .0s $anim_duration__loader_panel * 3 + $head_delay;
+  }
+}
+
+
+@import "./tp-1";
+@import "./tp-2";

@@ -1,0 +1,44 @@
+@import "@styles/topography/mixins";
+@import "@styles/variables";
+
+
+
+
+*[class|="btn"], *[class*="btn"], .btn {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  @include input_normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
+}
+.btn.play {
+  transition: all .25s ease;
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@import "./btn-link";
+
+
+.btn.copy_link {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: $border_radius_2;
+  border: solid 2px var(--color_topography_warn);
+  background: transparent;
+  color: var(--color_topography_warn);
+
+  transition: all .25s ease;
+  > span {transition: inherit}
+  &:hover {
+    background: var(--color_topography_warn);
+    color: var(--color_topography_2);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}

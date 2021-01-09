@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700;900&display=swap');
+
+@mixin body_H3-normal {
+  @include body_H3-normal-1;
+}
+
+@mixin body_H3-normal-1 {
+  font-family: GT Sectra Display;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  --line-height: 36px;
+  letter-spacing: 0em;
+}
+
+@mixin body_H5-normal {
+  @include body_H5-normal-1;
+}
+
+@mixin body_H5-normal-1 {
+  font-family: GT Sectra Display;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 24px;
+  --line-height: 24px;
+  letter-spacing: 0em;
+}
+
+@mixin body_H6-normal {
+  @include body_H6-normal-1;
+}
+
+@mixin body_H6-normal-1 {
+  font-family: GT Sectra Display;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  --line-height: 22px;
+  letter-spacing: 0em;
+}
+
+@mixin body_H6-normal-2 {
+  font-family: GT Sectra Display;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 24px;
+  --line-height: 24px;
+  letter-spacing: 0em;
+}
+
+@mixin body_H6-bold {
+  font-family: GT Sectra Display;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 24px;
+  --line-height: 24px;
+  letter-spacing: 0em;
+}
+
+@mixin body-normal {
+  font-family: GT Sectra Display;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  --line-height: 20px;
+  letter-spacing: 0em;
+}
+
+@mixin body-medium {
+  font-family: GT Sectra Display;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 16px;
+  --line-height: 16px;
+  letter-spacing: 0em;
+}
+
+
+
+@mixin input_normal {
+  font-family: GT Sectra Fine;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  --line-height: 24px;
+  letter-spacing: 0em;
+}

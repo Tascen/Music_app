@@ -1,0 +1,100 @@
+#page_musicList {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-items: flex-end;
+  padding: 32px 24px 0 24px;
+
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 32px;
+    margin: 0 0 16px 0;
+
+
+    .btn.reset_album {
+      width: 20px;
+      height: 20px;
+      transition: all .25s ease;
+      &:hover {
+        *[class|="icon"], .icon {
+          --color_1: var(--color_topography_warn);
+        }
+      }
+      &:active {
+        transform: scale(0.95) rotate(360deg);
+        //animation: anim_rotate__reset_album .25s ease forwards;
+      }
+    }
+  }
+
+
+  .panel-albumHead {
+    margin: 0 0 32px 0;
+    color: var(--color_topography_1);
+  }
+
+
+  .list-tracks {
+    width: calc(100% + 24px * 2);
+    height: 100%;
+    margin: 0 0 0 -24px;
+    z-index: 2;
+
+    transition: box-shadow .5s ease;
+    box-shadow: 0px -3px 15px -3px #00000073;
+    &.opened {
+      box-shadow: 0px -7px 9px -5px #0000003d;
+    }
+  }
+
+
+  .panel-trackPlaying {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 3;
+    box-shadow: 0px -7px 9px -1px #0000003d;
+    $duration: .5s;
+    transition: transform $duration cubic-bezier(0.6, 0.01, 0.25, 1);
+    > *:not(.loader_panel) {
+      transition: all $duration ease;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &.opened {
+      transition: transform $duration cubic-bezier(0.6, 0.01, 0.25, 1), border-radius $duration $duration * .8 cubic-bezier(0.6, 0.01, 0.25, 1);
+      border-radius: 0;
+      transform: translateY(-100%);
+      > *:not(.loader_panel) {
+        transition: all $duration $duration * .9 ease;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+
+
+  > .loader_panel {
+    background: var(--color_panel_background_1);
+    *[class|="loader"] {--color: var(--color_background);}
+
+    &.is_hidden {
+      transform: translateY(100%);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+
+
+@keyframes list-tracks__anim-fade-in {
+  0% {
+    max-height: 0%;
+  }
+  100% {
+    max-height: calc(var(--viewbox_height) * 0.7);
+  }
+}
