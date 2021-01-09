@@ -52,7 +52,6 @@ class Page_musicList extends React.Component {
             className="reset_album"
             icon={<Icon_reset/>}
             onClick={()=>{
-              console.log("reset");
               this.load_random_album()
             }}
           />
